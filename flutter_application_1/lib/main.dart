@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           title: Text('Bienvenido a Flutter'),
         ),
         body: Center(
-          child: Text('Hola Mundo 2'),
+          child: Text('Hola Mundo, desde la laptop'),
         ),
       ),
     );
