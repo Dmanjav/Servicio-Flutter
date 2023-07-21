@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, no_leading_underscores_for_local_identifiers, prefer_const_declarations, prefer_final_fields
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,11 +55,15 @@ class CardsState extends State<Cards> {
 
 Widget nodooControl() {
   final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+    //propiedades del botón)
       backgroundColor: Color.fromARGB(255, 32, 226, 165),
-      alignment: Alignment.center,
       elevation: 3.0,
-      maximumSize: Size(100, 50),
-      padding: EdgeInsets.all(5.0));
+      padding: EdgeInsets.all(5.0),
+      maximumSize: Size(100, 50));
+      
+      
+
+  bool _visible = false;
 
   return ListView(
     padding: const EdgeInsets.all(20.0),
@@ -201,32 +205,50 @@ Widget nodooControl() {
                   ),
                   Expanded(
                       child: Container(
-                        alignment: Alignment.centerRight,
+                    alignment: Alignment.centerRight,
                     child: IconButton(
                       icon: Icon(
                         Icons.keyboard_arrow_down,
                         color: Color.fromARGB(255, 150, 150, 150),
                         size: 25,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        /* 
+
+
+                        Tampoco puedo hacer que ese boton muestre los widgets de abajo, estoy enojado
+
+
+                         */
+                      },
                     ),
-                  ))
+                  )),
+                  Visibility(
+                    visible: _visible,
+                    child: Scaffold(
+                      body: Text('Hello, world!'),
+                    ),
+                  ),
                 ],
               ),
             ],
           )),
-      ElevatedButton(
-        style: raisedButtonStyle,
-        child: Row(
-          children: <Widget>[
-            Icon(Icons.phone_forwarded_outlined),
-            Text(
-              '  Llamar',
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
-        ),
+      ElevatedButton.icon(
+/* 
+
+
+No le puedo cambiar el tamaño al boton, no se porqué agh, dios mio
+
+
+
+
+
+
+         */
+        icon: Icon(Icons.phone_forwarded_outlined),
         onPressed: () {},
+        style: raisedButtonStyle,
+        label: Text('Llamar'),
       ),
       Text(
         'Tarifa de Servicio',
@@ -241,6 +263,43 @@ Widget nodooControl() {
     ],
   );
 }
+
+/*
+
+Esto es lo que se muestra trase presionar el botón de la flecha
+
+
+
+ class ExpandedInfo extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return ExpandedInfoState();
+  }
+}
+
+class ExpandedInfoState extends State<ExpandedInfo> {
+  bool _visible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _visible = false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onPressed: () {
+        setState(() {
+          _visible = !_visible;
+        });
+      },
+    );
+  }
+}
+ */
+
+
 /* 
 Widget tarifaServicio() {
   return ListView(
