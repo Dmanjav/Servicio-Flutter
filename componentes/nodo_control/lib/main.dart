@@ -55,15 +55,12 @@ class CardsState extends State<Cards> {
 
 Widget nodooControl() {
   final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-    //propiedades del botón)
+      //propiedades del botón)
       backgroundColor: Color.fromARGB(255, 32, 226, 165),
-      elevation: 3.0,
+      elevation: 5.0,
       padding: EdgeInsets.all(5.0),
       maximumSize: Size(100, 50));
-      
-      
 
-  bool _visible = false;
 
   return ListView(
     padding: const EdgeInsets.all(20.0),
@@ -75,6 +72,7 @@ Widget nodooControl() {
         ),
       ),
       Card(
+          elevation: 5.0,
           color: Colors.white,
           child: Column(
             children: [
@@ -100,7 +98,6 @@ Widget nodooControl() {
                                   textStyle: TextStyle(
                                 color: Color.fromARGB(255, 32, 78, 226),
                                 fontSize: 24,
-                                fontWeight: FontWeight.bold,
                               )),
                             ),
                             Text('Conexiones',
@@ -133,7 +130,6 @@ Widget nodooControl() {
                                   textStyle: TextStyle(
                                 color: Color.fromARGB(255, 32, 78, 226),
                                 fontSize: 24,
-                                fontWeight: FontWeight.bold,
                               )),
                               textAlign: TextAlign.left),
                           Text('Fletes Hechos',
@@ -181,7 +177,7 @@ Widget nodooControl() {
                     margin: EdgeInsets.only(left: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color.fromARGB(255, 198, 250, 201),
+                      color: Color.fromARGB(255, 204, 255, 230  ),
                     ),
                     height: 20,
                     width: 50,
@@ -189,14 +185,14 @@ Widget nodooControl() {
                       children: [
                         Icon(
                           Icons.lock_outline,
-                          color: Color.fromARGB(255, 150, 150, 150),
+                          color: Color.fromARGB(255, 0, 102, 53),
                           size: 15,
                         ),
                         Text(
                           ' 5/5',
                           style: GoogleFonts.raleway(
                               textStyle: TextStyle(
-                            color: Colors.black,
+                            color: Color.fromARGB(255, 0, 102, 53),
                             fontSize: 15,
                           )),
                         ),
@@ -223,28 +219,173 @@ Widget nodooControl() {
                       },
                     ),
                   )),
-                  Visibility(
-                    visible: _visible,
-                    child: Scaffold(
-                      body: Text('Hello, world!'),
-                    ),
-                  ),
                 ],
+              ),
+              //Los siguientes 5 Containers son la info que se debe desplegar al hacer click en la flecha
+              Container(
+                margin: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text('INE ',
+                            style: GoogleFonts.raleway(
+                                textStyle: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ))),
+                        Icon(
+                          Icons.check_circle_outline_outlined,
+                          color: Color.fromARGB(255, 32, 226, 165),
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "La identidad de esta persona fue validada hace 2 (dos) días.",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: GoogleFonts.raleway(
+                          textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 150, 150, 150),
+                      )),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text('Tarjeta de Circulación ',
+                            style: GoogleFonts.raleway(
+                                textStyle: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ))),
+                        Icon(
+                          Icons.check_circle_outline_outlined,
+                          color: Color.fromARGB(255, 32, 226, 165),
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "Esta persona cumple con los requisitos de mobilidad vigentes.",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: GoogleFonts.raleway(
+                          textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 150, 150, 150),
+                      )),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text('Tarjeta de Tracto ',
+                            style: GoogleFonts.raleway(
+                                textStyle: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ))),
+                        Icon(
+                          Icons.check_circle_outline_outlined,
+                          color: Color.fromARGB(255, 32, 226, 165),
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "El vehículo tiene sus papeles al día y con vigencia válida.",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: GoogleFonts.raleway(
+                          textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 150, 150, 150),
+                      )),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text('Poliza de Seguro del Tracto ',
+                            style: GoogleFonts.raleway(
+                                textStyle: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ))),
+                        Icon(
+                          Icons.check_circle_outline_outlined,
+                          color: Color.fromARGB(255, 32, 226, 165),
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "Esta persona cumple con los requisitos de mobilidad vigentes.",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: GoogleFonts.raleway(
+                          textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 150, 150, 150),
+                      )),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text('Licencia del Operador ',
+                            style: GoogleFonts.raleway(
+                                textStyle: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ))),
+                        Icon(
+                          Icons.check_circle_outline_outlined,
+                          color: Color.fromARGB(255, 32, 226, 165),
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "Esta persona cumple con los requisitos de mobilidad vigentes.",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: GoogleFonts.raleway(
+                          textStyle: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 150, 150, 150),
+                      )),
+                    ),
+                  ],
+                ),
               ),
             ],
           )),
       ElevatedButton.icon(
-/* 
-
-
-No le puedo cambiar el tamaño al boton, no se porqué agh, dios mio
-
-
-
-
-
-
-         */
+/* No le puedo cambiar el tamaño al boton, no se porqué agh, dios mio*/
         icon: Icon(Icons.phone_forwarded_outlined),
         onPressed: () {},
         style: raisedButtonStyle,
@@ -257,6 +398,7 @@ No le puedo cambiar el tamaño al boton, no se porqué agh, dios mio
         ),
       ),
       Card(
+        elevation: 5.0,
         color: Colors.white,
         child: Text('No puedo, esto está muy dificil'),
       ),
